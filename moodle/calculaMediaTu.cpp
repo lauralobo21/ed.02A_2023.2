@@ -23,13 +23,12 @@ void calcula_media(aluno *a)
 // Recebe vetor de alunos ('turma') e número de alunos ('n'), e chama a função
 // 'calcula_media' (da questão anterior) para cada aluno do vetor.
 // Ou seja, preenche o campo 'media' de cada aluno com a média das 3 notas do aluno.
-void calcula_media_turma(aluno turma[], int n)
-{
+void calcula_media_turma(aluno turma[], int n) {
+
     for(int i{}; i<n; i++) {
-        calcula_media(aluno a[i].media);
-        float media = calcula_media(aluno a[i].media);
+        calcula_media(&turma[i]);
+      
     }
-    cout << media << endl;
 }
 
 int main()
@@ -37,14 +36,14 @@ int main()
    int n, i, j;
    
    std::cin >> n;
-   aluno turma[n];
+   aluno *turma = new aluno[n];
    
    for (j = 0; j < n; j++)
       for (i = 0; i < 3; i++)
          std::cin >> turma[j].nota[i];
    
    // Chame a função 'calcula_media_turma' passando o vetor de alunos 'turma'.
-   calcula_media_turma(turma[n]);
+   calcula_media_turma(turma, n);
    
    for (j = 0; j < n; j++) {
       std::cout << std::fixed;
