@@ -12,6 +12,10 @@ private:
     double length; // comprimento
 
 public:
+// Destrutor : chamado quando o objeto eh destruido
+    ~Box() {
+        std:: cout << "caixa destruida" << endl;
+    }
     // Construtor default
     Box() : Box(1.0,1.0,1.0) { 
         std::cout << "Construtor default foi invocado";
