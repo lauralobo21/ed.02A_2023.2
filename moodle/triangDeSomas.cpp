@@ -3,11 +3,6 @@
 using namespace std;
 
 //funçao testa todos os numeros do vetor
-void soma(int novoVet, vet[], n) {
-    int soma = novoVet[i] = vet[i] 
-}
-
-
 void piramide(int vet[], int n) {
     if(n == 1) { // caso base;
         cout << "[" << vet[0] << "]" << endl;
