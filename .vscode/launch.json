@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/laura/Desktop/ed.02A_2023.2/4_setembro",
-      "program": "c:/Users/laura/Desktop/ed.02A_2023.2/4_setembro/build/Debug/outDebug",
+      "cwd": "c:/Users/laura/Desktop/ed.02A_2023.2/9_outubro",
+      "program": "c:/Users/laura/Desktop/ed.02A_2023.2/9_outubro/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

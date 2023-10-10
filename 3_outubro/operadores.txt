@@ -1,0 +1,21 @@
+FORMAS DE SOBRECARREGAR UM OPERADOR --------------------------------------------------
+    - Implementar operador como função
+    membro da classe.
+
+    - Implementar como uma função
+    global.
+        Ex: operadores relacionais.
+            Todo operador binário onde o elemento
+            da esquerda seja de tipo diferente da classe.
+    
+    Obs:
+    Nem todo operador pode ser implementado 
+    como uma fução global.
+        Ex: operador =
+            operador ++
+            operador --
+    
+    Exemplos de operadores que só podem ser implementados
+    como funções globais.
+        - operador <<
+        - operador >>
