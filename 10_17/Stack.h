@@ -26,6 +26,11 @@ private:
 public:
     // Construtor default: criar pilha vazia
     Stack() = default;
+    
+    // Funçao que insere um elemento no topo da pilha
+    void push(const Type& val) {
+        
+    }
 };
 
 
