@@ -78,9 +78,45 @@ class Queue {
         }
     }
 
-    // Destrutor
+    // Funcao const que acessa o primeiro elemento da fila.
+    // Se a lista estiver vazia, lanca uma exception
     const Type& front() const {
+        if(m_size == 0) {
+            throw std::runtime_error("fila vazia");
+        }
+        else {
+            return m_first->value;
+        }
+    }
 
+    // Funcao que acessa o ultimo elemento da fila.
+    // Se a lista estiver vazia, lanca uma exception
+    Type& back() {
+        if(m_size == 0) {
+            throw std::runtime_error("fila vazia");
+        }
+        else {
+            return m_last->value;
+        }
+    }
+
+    // Funcao const que acessa o ultimo elemento da fila.
+    // Se a lista estiver vazia, lanca uma exception
+    const Type& back() const {
+        if(m_size == 0) {
+            throw std::runtime_error("fila vazia");
+        }
+        else {
+            return m_last->value;
+        }
+    }
+
+    // Destrutor: deleta todos os nos da fila
+    // Ao chamar o destrutor de m_first, os destrutores dos demais nos
+    // na lista encadeada sao chamados e os nos vao sendo deletados de 
+    // tras para frente recursivamente.
+    ~Queue() {
+        delete m_first;
     }
 
     //Retornar o numero de elementos da fila
