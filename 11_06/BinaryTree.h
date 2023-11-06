@@ -2,6 +2,7 @@
 #define BINARY_TREE_H
 #include <iostream>
 #include "Node.h"
+#include <sstream>
 
 template <typename Type>
 class BinaryTree {
@@ -22,6 +23,9 @@ public:
         tleft.m_root = tright.m_root = nullptr;
     }
 
+    BinaryTree(std::string_view serial) {
+
+    }
     // Funcao que retorna true se e somente se 
     // a arvore estiver vazia
     bool empty() const {
@@ -66,7 +70,49 @@ public:
 
     BinaryTree(const BinaryTree&) = delete;
     BinaryTree& operator = (const BinaryTree& t) = delete;
+
+    std::string serial() const {
+        std::stringstream ss;
+        serialize(m_root, ss);
+        return ss.str();    // da uma string no formato vetor de caracteres
+    }
 private:
+    // Funcao recursiva que recebe uma stringstream
+    // constendo o serial de uma arvore. Ela consome
+    // o primeiro valor contido nessa stringstream
+    // cria um no e faz o mesmo procedimento para
+    // as subarvores esquerda e direita do nó
+    Node<Type>* deserialize(std::stringstream& ss) {
+        std:: string value;
+        ss >> value;
+        if(value == "#") {
+            return nullptr;
+        } 
+        else {
+            std::stringstream newss(value);
+            Type aux;
+            newss >> aux;
+            Node<Type>* temp = new Node(value, nullptr, nullptr);
+            temp->left = deserialize(ss);
+            temp->right = deserialize(ss);
+            return temp;
+        }
+    }
+
+    // Funcao privada recursiva que recebe a raiz de
+    // uma arvore e percorre a arvore em pre-ordem
+    // crinado uma stringstream contendo o serial dela
+    void serialize(Node<Type>* node, std::stringstream& ss) {
+        if(node == nullptr) {   //Caso de parada
+            ss << "# ";
+        }
+        else {
+            ss << node->data << " ";
+            serialize(node->left, ss);
+            serialize(node->right, ss);
+
+        }
+    }
     // Funcao recursiva que recebe a raiz
     // de uma arvore e retorna o numero
     // de nos da tal arvore
