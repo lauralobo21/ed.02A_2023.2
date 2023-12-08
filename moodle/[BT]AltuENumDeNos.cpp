@@ -101,6 +101,11 @@ int Tree::_size(Node *node) { // TODO
     return 1 + _size(node->left) + _size(node->right);
 }
 
+size()
+    if(node == nullptr) {
+        return 0
+    } return 1 + _size(node->left) + _size(node->right)
+
 int Tree::height() { // TODO
    return _height(_root);
 }
@@ -119,6 +124,3 @@ int Tree::_height(Node *node) { // TODO
         return 1 + right;
     }
 }
-
-
-
